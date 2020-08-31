@@ -1,0 +1,4 @@
+IDEAS THAT CAN BE ADDED TO GITHUB
+Highlighting certain sections of your code
+ONly certain parts of code visible to certain users
+Create graphs of data that can be visualised 
