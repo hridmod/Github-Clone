@@ -12,17 +12,15 @@ exports.getRepo = async (req, res) => {
 
 exports.createRepo = async (req, res) => {
   try {
-    const foundUser = await User.find({ firstName: req.body.firstName });
     const newRepo = await new Repository({
       Name: req.body.Name,
-      User: foundUser._id,
-      Numfork: req.body.Numfork,
+      Contributors: req.body.Contributors,
     });
 
     newRepo.save(function (err) {
       if (err) return handleError(err);
     });
-    res.redirect("/repo");
+    res.redirect("/repos");
   } catch (err) {
     console.log(err);
   }

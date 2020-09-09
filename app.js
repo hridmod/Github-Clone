@@ -10,18 +10,11 @@ app.use(express.static("public"));
 //DATABSE CONNECTION
 const DBconnection = require("./config/connect");
 DBconnection();
-
+//body parser
+app.use(express.json());
 //ROUTES
-
-app.get("/repo/:id", (req, res) => {
-  Repo.findById(req.params.id, (err, foundrepo) => {
-    if (err) {
-      console.log(err);
-    } else {
-      res.send(foundrepo);
-    }
-  });
-});
+app.use(require("./routes/repository.js"));
+app.use(require("./routes/user.js"));
 
 //DELETE ROUTE
 //*********************SERVER*****************************
