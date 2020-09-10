@@ -12,7 +12,7 @@ const {
 
 router.get("/repos", getRepo);
 router.post("/repos/new", createRepo);
-router.put("/repo/update/:id", updateRepo);
+router.put("/repos/update/:id", updateRepo);
 router.delete("/repos/delete/:id", deleteRepo);
 router.get("/repos/:id", getRepoById);
 

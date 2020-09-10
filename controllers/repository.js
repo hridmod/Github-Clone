@@ -17,7 +17,7 @@ exports.createRepo = async (req, res) => {
       Contributors: req.body.Contributors,
     });
 
-    newRepo.save(function (err) {
+    await newRepo.save(function (err) {
       if (err) return handleError(err);
     });
     res.redirect("/repos");
@@ -27,7 +27,7 @@ exports.createRepo = async (req, res) => {
 };
 
 exports.getRepoById = async (req, res) => {
-  const foundRepo = Repository.findById(req.params._id);
+  const foundRepo = await Repository.findById(req.params._id);
   res.send(foundRepo);
 };
 
