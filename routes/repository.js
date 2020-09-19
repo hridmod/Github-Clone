@@ -1,19 +1,19 @@
-const express = require("express");
+const express = require('express');
 
 const router = express.Router();
-
+const verify = require('../middleware/verify');
 const {
   getRepo,
   createRepo,
   updateRepo,
   deleteRepo,
   getRepoById,
-} = require("../controllers/repository");
+} = require('../controllers/repository');
 
-router.get("/repos", getRepo);
-router.post("/repos/new", createRepo);
-router.put("/repos/update/:id", updateRepo);
-router.delete("/repos/delete/:id", deleteRepo);
-router.get("/repos/:id", getRepoById);
+router.get('/repos', getRepo);
+router.post('/repos/new', verify, createRepo);
+router.put('/repos/update/:id', verify, updateRepo);
+router.delete('/repos/delete/:id', verify, deleteRepo);
+router.get('/repos/:id', getRepoById);
 
 module.exports = router;

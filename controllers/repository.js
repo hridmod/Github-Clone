@@ -11,10 +11,13 @@ exports.getRepo = async (req, res) => {
 };
 
 exports.createRepo = async (req, res) => {
+  const repoExist = await Repository.findOne({ Name: req.body.Name });
+  if (repoExist) return res.status(400).send("Repo already Exist");
   try {
     const newRepo = await new Repository({
       Name: req.body.Name,
       Contributors: req.body.Contributors,
+      numStars: req.body.numStars,
     });
 
     await newRepo.save(function (err) {
