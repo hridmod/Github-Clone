@@ -1,6 +1,6 @@
-const User = require("../models/User");
-const { uservalidation, loginValidation } = require("../validation/valid");
-const bcrypt = require("bcryptjs");
+const User = require('../models/User');
+const { uservalidation, loginValidation } = require('../validation/valid');
+const bcrypt = require('bcryptjs');
 exports.getUser = async (req, res) => {
   try {
     let user = await User.find({});
@@ -30,7 +30,7 @@ exports.createUser = async (req, res) => {
         console.log(err);
       }
     });
-    await res.redirect("/user");
+    await res.redirect('/user');
   } catch (err) {
     console.log(err);
   }
