@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "dev": "supervisor app.js"
+    "dev": "supervisor app.js",
+    "start": "node app.js"
   },
   "author": "hriday",
   "license": "ISC",
